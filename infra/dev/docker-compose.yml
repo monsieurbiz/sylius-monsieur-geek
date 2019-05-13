@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  db:
+    image: monsieurbiz/mariadb:10.1
+    build:
+      context: db/
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ../../:/var/www:cached
+      - ./db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro,cached
+      - database:/var/lib/mysql:rw,cached
+    ports:
+      - "3306:3306"
+
+  mail:
+    image: monsieurbiz/mailcatcher
+    ports:
+      - "1080:1080"
+      - "25:25"
+
+  node:
+    build:
+      context: node/
+      args:
+        USER_UID: ${USER_UID}
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - ../../:/var/www:rw,cached
+
+volumes:
+  database: {}
