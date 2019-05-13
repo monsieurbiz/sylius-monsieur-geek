@@ -178,9 +178,9 @@ sylius_fixtures:
                                         code: 'jeux-wii'
                                         slug: 'jeux-wii'
 
-                product:
+                nintendo_product:
                     options:
-                        random: 15
+                        amount: 100
 
                 product_review:
                     options:

@@ -1,0 +1,7 @@
+services:
+    sylius.fixture.nintendo_product:
+        autowire: false
+        class: App\Fixture\NintendoProductFixture
+        arguments:
+            - "@sylius.fixture.product"
+        tags: ['sylius_fixtures.fixture']
