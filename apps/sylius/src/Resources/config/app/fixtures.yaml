@@ -178,6 +178,27 @@ sylius_fixtures:
                                         code: 'jeux-wii'
                                         slug: 'jeux-wii'
 
+                product_attribute:
+                    options:
+                        custom:
+                            game_type:
+                                name: "Type de jeu"
+                                code: "game_type"
+                                type: "select"
+                                configuration:
+                                    choices:
+                                        multiple: false
+                                        platform:
+                                            fr_FR: "Plateforme"
+                                        adventure:
+                                            fr_FR: "Aventure"
+                                        rpg:
+                                            fr_FR: "RPG"
+                                        sport:
+                                            fr_FR: "Sport"
+                                        fight:
+                                            fr_FR: "Combat"
+
                 nintendo_product:
                     options:
                         amount: 100

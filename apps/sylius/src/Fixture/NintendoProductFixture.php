@@ -46,6 +46,7 @@ class NintendoProductFixture extends AbstractFixture
     public function load(array $options): void
     {
         $options = $this->optionsResolver->resolve($options);
+        $gameTypes = ['platform', 'adventure', 'rpg', 'sport', 'fight'];
         
         $products = [];
         $productsNames = $this->getUniqueNames($options['amount']);
@@ -55,6 +56,9 @@ class NintendoProductFixture extends AbstractFixture
                     (rand(0,1) ? 'New ' : '') . (rand(0,1) ? 'Super ' : '') . 'Mario "%s" ' . (rand(0,1) ? 'Bros. ' : '') . (rand(0,1) ? 'Deluxe ' : ''),
                     $productsNames[$i]
                 ),
+                'product_attributes' => [
+                    'game_type' => $this->faker->randomElements($gameTypes, $this->faker->numberBetween(1, count($gameTypes))),
+                ],
                 'code' => $this->faker->uuid,
                 'images' => [
                     [
