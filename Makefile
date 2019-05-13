@@ -5,7 +5,7 @@ SHELL=/bin/bash
 # ¯¯¯¯¯¯¯¯¯¯¯¯¯
 
 DOMAINS=monsieurgeek
-SYLIUS_FIXTURES_SUITE=default
+SYLIUS_FIXTURES_SUITE=monsieurgeek
 
 BASH_CONTAINER=php
 export USER_UID=$(shell id -u)

@@ -1,0 +1,201 @@
+sylius_fixtures:
+    suites:
+        monsieurgeek:
+            listeners:
+                orm_purger: ~
+                logger: ~
+
+            fixtures:
+                locale: ~
+                currency:
+                    options:
+                        currencies: ['EUR']
+
+                geographical:
+                    options:
+                        countries:
+                            - "FR"
+                        zones:
+                            FR:
+                                name: "France"
+                                countries:
+                                    - "FR"
+
+                channel:
+                    options:
+                        custom:
+                            monsieurgeek:
+                                name: "Monsieur Geek"
+                                code: "monsieurgeek"
+                                locales:
+                                    - "%locale%"
+                                currencies:
+                                    - "EUR"
+                                enabled: true
+                                hostname: "monsieurgeek.wip"
+                                default_locale: "%locale%"
+                                account_verification_required: false
+
+                payment_method:
+                    options:
+                        custom:
+                            bank_transfer:
+                                code: "bank_transfer"
+                                name: "Virement"
+                                description: "Paiement par virement bancaire"
+                                instructions: "Envoyez votre virement sous 6 jours : FR7630004000031234567890143"
+                                channels:
+                                    - "monsieurgeek"
+                                enabled: true
+
+                customer_group:
+                    options:
+                        custom:
+                            retail:
+                                code: "retail"
+                                name: "Retail"
+
+                shop_user:
+                    name: "shop_user"
+                    options:
+                        random: 20
+                        custom:
+                            -
+                                email: "mah@mbiz.io"
+                                first_name: "John"
+                                last_name: "Doe"
+                                password: "Qwerty123"
+
+                admin_user:
+                    name: "admin_user"
+                    options:
+                        custom:
+                            -
+                                email: "sylius@example.com"
+                                username: "sylius"
+                                password: "sylius"
+                                enabled: true
+                                locale_code: "%locale%"
+                                first_name: "John"
+                                last_name: "Doe"
+                            -
+                                email: "api@example.com"
+                                username: "api"
+                                password: "sylius-api"
+                                enabled: true
+                                locale_code: "%locale%"
+                                first_name: "Luke"
+                                last_name: "Brushwood"
+                                api: true
+
+                tax_category:
+                    options:
+                        custom:
+                            normal:
+                                code: "normal"
+                                name: "Normal"
+                            reduced:
+                                code: "reduced"
+                                name: "Réduit"
+
+                tax_rate:
+                    options:
+                        custom:
+                            normal_tax:
+                                code: "normal_tax_20"
+                                name: "Taux normal 20%"
+                                zone: "FR"
+                                category: "normal"
+                                amount: 0.2
+                            reduced:
+                                code: "reduced_tax_5_5"
+                                name: "Taux réduit 5.5%"
+                                zone: "FR"
+                                category: "reduced"
+                                amount: 0.055
+
+                promotion:
+                    options:
+                        custom:
+                            welcome:
+                                code: "welcome"
+                                name: "10€ à partir de 100€ d'achat"
+                                usage_limit: 1
+                                priority: 1
+                                starts_at: "-7 day"
+                                ends_at: "7 day"
+                                channels:
+                                    - "monsieurgeek"
+                                rules:
+                                    -
+                                        type: "item_total"
+                                        configuration:
+                                            monsieurgeek:
+                                                amount: 100.00
+                                actions:
+                                    -
+                                        type: "order_fixed_discount"
+                                        configuration:
+                                            monsieurgeek:
+                                                amount: 10.00
+
+
+                shipping_method:
+                    options:
+                        custom:
+                            colissimo:
+                                code: "colissimo"
+                                name: "Colissimo"
+                                enabled: true
+                                channels:
+                                    - "monsieurgeek"
+
+                taxon:
+                    options:
+                        custom:
+                            category:
+                                name: 'Monsieur Geek'
+                                code: 'category'
+                                children:
+                                    nes:
+                                        name: 'Jeux NES'
+                                        code: 'jeux-nes'
+                                        slug: 'jeux-nes'
+                                    snes:
+                                        name: 'Jeux Super NES'
+                                        code: 'jeux-snes'
+                                        slug: 'jeux-snes'
+                                    nintendo_sixty_fouuuuur:
+                                        name: 'Jeux Nintendo 64'
+                                        code: 'jeux-n64'
+                                        slug: 'jeux-n64'
+                                    game_cube:
+                                        name: 'Jeux Game Cube'
+                                        code: 'jeux-game-cube'
+                                        slug: 'jeux-game-cube'
+                                    wii:
+                                        name: 'Jeux Wii'
+                                        code: 'jeux-wii'
+                                        slug: 'jeux-wii'
+
+                product:
+                    options:
+                        random: 15
+
+                product_review:
+                    options:
+                        random: 40
+
+                similar_product_association:
+                    options:
+                        amount: 10
+
+                order:
+                    options:
+                        amount: 20
+
+                address:
+                    options:
+                        random: 10
+                        prototype:
+                            country_code: FR
