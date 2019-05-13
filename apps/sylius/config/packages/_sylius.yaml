@@ -6,6 +6,8 @@ imports:
 
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
 
+    - { resource: "@BitBagSyliusElasticsearchPlugin/Resources/config/config.yml" }
+
     - { resource: '../../src/Resources/config/app/config.yaml' }
 
 parameters:
