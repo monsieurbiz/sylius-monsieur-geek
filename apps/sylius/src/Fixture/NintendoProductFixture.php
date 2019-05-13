@@ -58,6 +58,7 @@ class NintendoProductFixture extends AbstractFixture
                 ),
                 'product_attributes' => [
                     'game_type' => $this->faker->randomElements($gameTypes, $this->faker->numberBetween(1, count($gameTypes))),
+                    'release_year' => rand(1980, 2019),
                 ],
                 'code' => $this->faker->uuid,
                 'images' => [

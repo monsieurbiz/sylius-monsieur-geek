@@ -198,6 +198,11 @@ sylius_fixtures:
                                             fr_FR: "Sport"
                                         fight:
                                             fr_FR: "Combat"
+                            release_year:
+                                name: "Année de sortie"
+                                code: "release_year"
+                                # Permissible values: "text", "textarea", "checkbox", "integer", "percent", "datetime", "date", "select"
+                                type: "integer"
 
                 nintendo_product:
                     options:
