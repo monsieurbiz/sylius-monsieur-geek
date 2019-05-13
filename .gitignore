@@ -1,0 +1,14 @@
+# Caches and co.
+/.bash*
+/.node*
+/.yarn*
+/yarn.lock
+/.vim*
+/.cache*
+/.composer
+/.babel*
+/.v8flags*
+/fabfile.pyc
+/.npm
+/.config
+/node_modules
