@@ -1,3 +1,6 @@
+imports:
+    - { resource: "resources.yaml" }
+
 services:
     sylius.fixture.nintendo_product:
         autowire: false
