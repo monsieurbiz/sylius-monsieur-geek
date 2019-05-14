@@ -11,3 +11,14 @@ app_admin_editor:
             index:
                 icon: 'id badge outline'
     type: sylius.resource
+
+app_admin_editor_approve:
+    path: admin/editor/{id}/approve
+    methods: ['PUT']
+    defaults:
+        _controller: app.controller.editor:applyStateMachineTransitionAction
+        _sylius:
+            state_machine:
+                graph: app_editor
+                transition: approve
+            redirect: referer
