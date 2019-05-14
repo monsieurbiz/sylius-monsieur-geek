@@ -28,7 +28,7 @@ down: docker.down symfony.server.stop ## Down
 
 stop: docker.stop symfony.server.stop ## Stop
 
-logs: docker.stop symfony.server.log ## Logs
+logs: symfony.server.log ## Logs
 
 
 ### PROJECT
