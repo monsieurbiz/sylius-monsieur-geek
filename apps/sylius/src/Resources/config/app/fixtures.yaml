@@ -177,6 +177,15 @@ sylius_fixtures:
                                         name: 'Jeux Wii'
                                         code: 'jeux-wii'
                                         slug: 'jeux-wii'
+                editor:
+                    options:
+                        random: 10
+                        custom:
+                            nintendo:
+                                name: 'Nintendo'
+                                code: 'nintendo'
+                                email: 'contact@nintendo.jp'
+
 
                 product_attribute:
                     options:
