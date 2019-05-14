@@ -31,3 +31,14 @@ services:
             - "@sylius.translation_locale_provider"
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
+
+    App\Fixture\Factory\EditorExampleFactory:
+        arguments:
+            - '@app.factory.editor'
+
+    App\Fixture\EditorFixture:
+        arguments:
+            - '@app.manager.editor'
+            - '@App\Fixture\Factory\EditorExampleFactory'
+        tags:
+            - { name: sylius_fixtures.fixture }
