@@ -20,6 +20,8 @@ class ProductTypeExtension extends AbstractResourceType implements FormTypeExten
             'class' => Editor::class,
             'choice_label' => 'name',
             'choice_value' => 'code',
+            'label' => 'app.ui.editor',
+            'required' => false,
         ]);
     }
     
