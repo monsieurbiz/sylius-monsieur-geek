@@ -9,5 +9,5 @@ app_admin_editor:
             all:
                 subheader: app.ui.editor
             index:
-                icon: 'file image outline'
+                icon: 'id badge outline'
     type: sylius.resource
