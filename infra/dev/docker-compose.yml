@@ -48,6 +48,8 @@ services:
     image: elastichq/elasticsearch-hq
     ports:
       - "5000:5000"
+    environment:
+      - HQ_DEFAULT_URL=http://elasticsearch:9200
     links:
       - elasticsearch
 
