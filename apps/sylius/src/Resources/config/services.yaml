@@ -48,3 +48,17 @@ services:
         class: App\EmailManager\EditorApprovedManager
         public: true
         arguments: ['@sylius.email_sender']
+
+    app.injected_template.product_form:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments:
+            - 'Product\_addFormDetails.html.twig'
+        tags:
+            -
+                name: kernel.event_listener
+                event: sonata.block.event.sylius.admin.product.update.tab_details
+                method: onBlockEvent
+            -
+                name: kernel.event_listener
+                event: sonata.block.event.sylius.admin.product.create.tab_details
+                method: onBlockEvent
