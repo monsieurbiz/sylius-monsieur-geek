@@ -1,0 +1,2 @@
+app_admin_editor:
+    resource: 'admin/editor.yaml'
