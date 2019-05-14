@@ -289,3 +289,15 @@ sylius_grid:
                         type: update
                     delete:
                         type: delete
+                    approve:
+                        type: apply_transition
+                        label: app.ui.approve
+                        icon: check
+                        options:
+                            transition: approve
+                            graph: app_editor
+                            class: green
+                            link:
+                                route: app_admin_editor_approve
+                                parameters:
+                                    id: resource.id
