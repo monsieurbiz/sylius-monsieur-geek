@@ -49,5 +49,8 @@ symfony.migration.generate: ## Generate migration file
 symfony.migration.execute: ## Excecute migration file
 	$(call symfony.console, doctrine:migrations:execute ${ARGS})
 
+symfony.migration.migrate: ## Run migrations
+	$(call symfony.console, doctrine:migrations:migrate)
+
 symfony.load_fixtures: ## Load fixtures
 	$(call symfony.console, hautelook:fixtures:load)
