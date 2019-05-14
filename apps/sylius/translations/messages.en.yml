@@ -1,0 +1,7 @@
+app:
+  ui:
+    new_editor: 'Create an editor'
+    edit_editor: 'Update an editor'
+    monsieur_geek: 'Monsieur Geek'
+    editors: 'Editors'
+    editor: 'Editor'

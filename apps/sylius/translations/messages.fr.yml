@@ -1,0 +1,7 @@
+app:
+  ui:
+    new_editor: 'Création d''un éditeur'
+    edit_editor: 'Modification d''un éditeur'
+    monsieur_geek: 'Monsieur Geek'
+    editors: 'Éditeurs'
+    editor: 'Éditeur'
