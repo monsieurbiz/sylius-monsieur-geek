@@ -15,3 +15,8 @@ services:
             - ['sylius']
         tags:
             - { name: form.type, alias: App\Form\Type\EditorType }
+
+    app.listener.admin.menu_builder:
+        class: App\Menu\AdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
