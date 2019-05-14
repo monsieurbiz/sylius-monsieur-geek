@@ -271,6 +271,15 @@ sylius_grid:
                 code:
                     type: string
                     label: sylius.ui.code
+                status:
+                    type: twig
+                    label: sylius.ui.status
+                    sortable: ~
+                    options:
+                        template: "@SyliusUi/Grid/Field/state.html.twig"
+                        vars:
+                            labels: "@/Editor/State"
+
             actions:
                 main:
                     create:
