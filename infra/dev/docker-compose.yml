@@ -31,5 +31,26 @@ services:
     volumes:
       - ../../:/var/www:rw,cached
 
+  elasticsearch:
+    build:
+      context: ./elasticsearch/
+      args:
+        USER_UID: ${USER_UID}
+    volumes:
+      - esdata:/usr/share/elasticsearch/data:rw
+    environment:
+      - "xpack.security.enabled=false"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  elasticsearch-hq:
+    image: elastichq/elasticsearch-hq
+    ports:
+      - "5000:5000"
+    links:
+      - elasticsearch
+
 volumes:
   database: {}
+  esdata: {}
