@@ -35,6 +35,7 @@ services:
     App\Fixture\Factory\EditorExampleFactory:
         arguments:
             - '@app.factory.editor'
+            - '@sm.factory'
 
     App\Fixture\EditorFixture:
         arguments:

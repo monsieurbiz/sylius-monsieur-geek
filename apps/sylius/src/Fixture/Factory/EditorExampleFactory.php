@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Fixture\Factory;
 
 use App\Entity\Editor\EditorInterface;
+use SM\SMException;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use SM\Factory\FactoryInterface as StateMachineFactoryInterface;
 
 final class EditorExampleFactory extends AbstractExampleFactory
 {
@@ -22,9 +24,15 @@ final class EditorExampleFactory extends AbstractExampleFactory
      */
     private $factory;
     
-    public function __construct(FactoryInterface $factory)
+    /**
+     * @var StateMachineFactoryInterface
+     */
+    private $stateMachineFactory;
+    
+    public function __construct(FactoryInterface $factory, StateMachineFactoryInterface $stateMachineFactory)
     {
         $this->factory = $factory;
+        $this->stateMachineFactory = $stateMachineFactory;
         $this->faker = \Faker\Factory::create();
         $this->optionResolver = new OptionsResolver();
         $this->configureOptions($this->optionResolver);
@@ -43,6 +51,16 @@ final class EditorExampleFactory extends AbstractExampleFactory
         $editor->setName($options['name']);
         $editor->setEmail($options['email']);
         
+        if ($this->faker->boolean(20)) {
+            $stateMachineFactory = $this->stateMachineFactory->get($editor, 'app_editor');
+            try {
+                $stateMachineFactory->apply('approve');
+            } catch (SMException $exception) {
+                // Do nothing if SMException is thrown
+            }
+        }
+    
+    
         return $editor;
     }
     
