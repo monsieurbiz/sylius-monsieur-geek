@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="app_editor")
  * @package AppBundle\Entity
  */
-class Editor implements ResourceInterface, CodeAwareInterface
+class Editor implements ResourceInterface, CodeAwareInterface, EditorInterface
 {
     /**
      * @ORM\Id

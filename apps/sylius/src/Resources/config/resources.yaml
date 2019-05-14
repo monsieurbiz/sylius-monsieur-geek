@@ -5,3 +5,4 @@ sylius_resource:
             classes:
                 model: App\Entity\Editor\Editor
                 form: App\Form\Type\EditorType
+                interface: App\Entity\Editor\EditorInterface
