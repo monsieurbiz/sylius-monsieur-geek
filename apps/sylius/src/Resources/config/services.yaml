@@ -8,3 +8,10 @@ services:
         arguments:
             - "@sylius.fixture.product"
         tags: ['sylius_fixtures.fixture']
+
+    App\Form\Type\EditorType:
+        arguments:
+            - '%app.model.editor.class%'
+            - ['sylius']
+        tags:
+            - { name: form.type, alias: App\Form\Type\EditorType }

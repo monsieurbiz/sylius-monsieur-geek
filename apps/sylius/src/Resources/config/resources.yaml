@@ -4,3 +4,4 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: App\Entity\Editor\Editor
+                form: App\Form\Type\EditorType
