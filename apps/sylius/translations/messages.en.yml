@@ -5,3 +5,7 @@ app:
     monsieur_geek: 'Monsieur Geek'
     editors: 'Editors'
     editor: 'Editor'
+    approve: 'Approve'
+sylius:
+  ui:
+    approved: 'Approved'
