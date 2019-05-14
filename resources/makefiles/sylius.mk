@@ -1,7 +1,7 @@
 ### SYLIUS
 # ¯¯¯¯¯¯¯¯
 
-sylius.install: sylius.db.refresh sylius.assets.install sylius.theme.assets.install ## Install Sylius
+sylius.install: sylius.db.refresh sylius.es.reindex sylius.assets.install sylius.theme.assets.install ## Install Sylius
 
 sylius.db.refresh: sylius.db.schema.reset sylius.fixtures.load ## Refresh Sylius database with fixtures (⚠ Reset database)
 
@@ -43,3 +43,6 @@ endif
 
 sylius.cache.clean.soft: ## Remove application caches using console
 	${MAKE} sylius.cache.clean FORCE=0
+
+sylius.es.reindex: ## Remove application caches using console
+	$(call symfony.console,fos:elastica:populate)
