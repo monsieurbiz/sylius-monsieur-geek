@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity\Editor;
 
+use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="app_editor")
  * @package AppBundle\Entity
  */
-class Editor implements ResourceInterface
+class Editor implements ResourceInterface, CodeAwareInterface
 {
     /**
      * @ORM\Id
@@ -39,7 +40,7 @@ class Editor implements ResourceInterface
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -47,7 +48,7 @@ class Editor implements ResourceInterface
     /**
      * @param mixed $name
      */
-    public function setName($name): void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
@@ -55,7 +56,7 @@ class Editor implements ResourceInterface
     /**
      * @return mixed
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -63,7 +64,7 @@ class Editor implements ResourceInterface
     /**
      * @return mixed
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -71,7 +72,7 @@ class Editor implements ResourceInterface
     /**
      * @param mixed $email
      */
-    public function setEmail($email): void
+    public function setEmail(?string $email): void
     {
         $this->email = $email;
     }
@@ -79,7 +80,7 @@ class Editor implements ResourceInterface
     /**
      * @return mixed
      */
-    public function getCode()
+    public function getCode(): ?string
     {
         return $this->code;
     }
