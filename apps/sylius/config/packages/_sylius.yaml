@@ -257,3 +257,26 @@ sylius_theme:
         filesystem:
             directories:
                 - "%kernel.project_dir%/themes"
+sylius_grid:
+    grids:
+        app_admin_editor:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: App\Entity\Editor\Editor
+            fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
+                code:
+                    type: string
+                    label: sylius.ui.code
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
