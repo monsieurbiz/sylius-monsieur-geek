@@ -11,10 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="app_editor")
- * @package AppBundle\Entity
+ * @package App\Entity
  */
 class Editor implements ResourceInterface, CodeAwareInterface, EditorInterface
 {
+    const STATE_NEW = 'new';
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -36,6 +38,12 @@ class Editor implements ResourceInterface, CodeAwareInterface, EditorInterface
      * @ORM\Column(type="string", length=255)
      */
     private $email;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status = self::STATE_NEW;
+    
     
     /**
      * @return mixed
@@ -92,4 +100,21 @@ class Editor implements ResourceInterface, CodeAwareInterface, EditorInterface
     {
         $this->code = $code;
     }
+    
+    /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+    
+    /**
+     * @param string $status
+     */
+    public function setStatus(string $status): void
+    {
+        $this->status = $status;
+    }
+    
 }
