@@ -1,2 +1,14 @@
-bitbag_sylius_elasticsearch_plugin:
-    resource: "@BitBagSyliusElasticsearchPlugin/Resources/config/routing.yml"
+bitbag_sylius_elasticsearch_plugin_shop_list_products:
+    path: /products-list/{slug}
+    defaults:
+        _controller: bitbag_sylius_elasticsearch_plugin.controller.action.shop.list_products
+        template: "@BitBagSyliusElasticsearchPlugin/Shop/Product/index.html.twig"
+    requirements:
+        slug: .+
+
+bitbag_sylius_elasticsearch_plugin_shop_auto_complete_product_name:
+    path: /auto-complete/product
+    defaults:
+        _controller: bitbag_sylius_elasticsearch_plugin.controller.action.shop.auto_complete_product_name
+    requirements:
+        slug: .+
