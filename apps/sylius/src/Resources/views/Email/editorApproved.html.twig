@@ -1,0 +1,9 @@
+{% block subject %}
+    Editor approved
+{% endblock %}
+
+{% block body %}
+    {% autoescape %}
+        Hello {{ editor.name }} 🥰
+    {% endautoescape %}
+{% endblock %}

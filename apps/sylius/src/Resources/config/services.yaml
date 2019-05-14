@@ -43,3 +43,8 @@ services:
             - '@App\Fixture\Factory\EditorExampleFactory'
         tags:
             - { name: sylius_fixtures.fixture }
+
+    app.email_manager.editor_approved_manager:
+        class: App\EmailManager\EditorApprovedManager
+        public: true
+        arguments: ['@sylius.email_sender']

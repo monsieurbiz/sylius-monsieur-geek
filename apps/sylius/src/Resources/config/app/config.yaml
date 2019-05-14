@@ -15,3 +15,14 @@ winzou_state_machine:
                 from: ['new'] # Can be many
                 to: 'approved' # Always one of course
         callbacks:
+            after:
+                app_editor_approved:
+                    on: ["approve"]
+                    do: ["@app.email_manager.editor_approved_manager", "sendEmail"]
+                    args: ["object"]
+
+sylius_mailer:
+    emails:
+        editor_approved:
+            subject: 'Editor approved'
+            template: 'Email/editorApproved.html.twig'
